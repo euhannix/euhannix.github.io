@@ -24,134 +24,171 @@ body{
     height:100vh;
 
     background-image:url("images/bg.jpg");
-
     background-size:cover;
-
-    /* joga a imagem mais pra direita */
     background-position:75% center;
-
     background-repeat:no-repeat;
 
     overflow:hidden;
 
     font-family:'Cinzel', serif;
+    color:white;
+
+    transition:0.6s ease;
 }
 
-/* camada escura cinematográfica */
+/* overlay cinematográfico */
 body::before{
 
     content:"";
-
     position:absolute;
-
     top:0;
     left:0;
-
     width:100%;
     height:100%;
 
-    background:
-    linear-gradient(
+    background:linear-gradient(
         to right,
-        rgba(0,0,0,0.75),
+        rgba(0,0,0,0.78),
         rgba(0,0,0,0.15)
     );
 
     z-index:1;
 }
 
-/* container principal */
+/* MENU */
 .menu{
 
     position:relative;
-
     z-index:2;
 
     height:100vh;
 
     display:flex;
-
     flex-direction:column;
-
     justify-content:center;
 
     padding-left:8%;
+
+    transition:0.6s ease;
 }
 
-/* logo png */
+/* quando abre aba */
+body.menu-open .menu{
+    transform: translateX(-35%);
+    opacity:0.15;
+}
+
+/* logo */
 .logo{
 
     width:500px;
-
     margin-bottom:40px;
 
-    filter:
-    drop-shadow(0 0 25px rgba(0,0,0,0.9));
-
+    filter:drop-shadow(0 0 25px rgba(0,0,0,0.9));
 }
 
-/* links menu */
+/* links */
 .menu a{
 
     color:white;
-
     text-decoration:none;
 
     font-family:'Cormorant Garamond', serif;
 
     font-size:1.4rem;
-
     font-weight:300;
 
     margin:10px 0;
 
     letter-spacing:6px;
 
-    transition:0.45s ease;
-
+    transition:0.4s;
+    cursor:pointer;
     width:fit-content;
-
-    text-shadow:
-    0 0 10px rgba(0,0,0,0.7);
 }
 
-/* hover cinematográfico */
 .menu a:hover{
 
     color:#7a0000;
-
     transform:translateX(12px);
-
     letter-spacing:10px;
-
-    text-shadow:
-    0 0 8px #7a0000,
-    0 0 20px #7a0000;
 }
 
-/* celular */
+/* PAINÉIS */
+.panel{
+
+    position:absolute;
+    top:0;
+    right:0;
+
+    width:100%;
+    height:100vh;
+
+    z-index:3;
+
+    background:rgba(0,0,0,0.70);
+
+    padding:100px 15%;
+
+    overflow-y:auto;
+
+    display:none;
+}
+
+/* ativo */
+.panel.active{
+    display:block;
+    animation:fadeIn 0.6s ease;
+}
+
+/* animação */
+@keyframes fadeIn{
+    from{
+        opacity:0;
+        transform:translateX(40px);
+    }
+    to{
+        opacity:1;
+        transform:translateX(0);
+    }
+}
+
+/* texto */
+h1{
+    color:#7a0000;
+    margin-bottom:25px;
+    letter-spacing:4px;
+}
+
+p{
+    font-family:'Cormorant Garamond', serif;
+    font-size:1.15rem;
+    line-height:1.8;
+    margin-bottom:15px;
+}
+
+/* fechar */
+.close{
+    position:absolute;
+    top:25px;
+    right:30px;
+    font-size:22px;
+    cursor:pointer;
+}
+
+/* mobile */
 @media(max-width:768px){
 
-    body{
-
-        background-position:70% center;
-    }
-
     .menu{
-
         padding-left:10%;
     }
 
     .logo{
-
         width:280px;
     }
 
-    .menu a{
-
-        font-size:1.1rem;
-
-        letter-spacing:4px;
+    .panel{
+        padding:80px 30px;
     }
 }
 
@@ -163,22 +200,114 @@ body::before{
 
 <div class="menu">
 
-<!-- logo png -->
 <img src="images/logo.png" class="logo">
 
-<a href="#">SHADOWS</a>
-
-<a href="#">PERSONALITY</a>
-
-<a href="#">TRUE FORM</a>
-
-<a href="#">VOICE CLAIM</a>
-
-<a href="#">PAVOR</a>
-
-<a href="#">PLAYLIST</a>
+<a onclick="openPanel('shadows')">SHADOWS</a>
+<a onclick="openPanel('personality')">PERSONALITY</a>
+<a onclick="openPanel('trueform')">TRUE FORM</a>
+<a onclick="openPanel('voice')">VOICE CLAIM</a>
+<a onclick="openPanel('pavor')">PAVOR</a>
+<a onclick="openPanel('playlist')">PLAYLIST</a>
 
 </div>
+
+<!-- SHADOWS -->
+<div id="shadows" class="panel">
+<div class="close" onclick="closePanel()">✕</div>
+
+<h1>SHADOWS</h1>
+
+<p>há algo nele que não é humano no sentido comum.</p>
+<p>não é só controle — é consciência do excesso.</p>
+<p>ele sabe quando atravessa a linha e ainda assim atravessa.</p>
+
+</div>
+
+<!-- PERSONALITY -->
+<div id="personality" class="panel">
+<div class="close" onclick="closePanel()">✕</div>
+
+<h1>PERSONALITY</h1>
+
+<p>há pessoas que fingem não sentir.</p>
+<p>hades não finge.</p>
+
+<p>ele observa, mede e calcula silêncio como linguagem.</p>
+
+</div>
+
+<!-- TRUE FORM (VAZIO) -->
+<div id="trueform" class="panel">
+<div class="close" onclick="closePanel()">✕</div>
+
+<h1>TRUE FORM</h1>
+
+<p>(vazio por enquanto)</p>
+
+</div>
+
+<!-- VOICE -->
+<div id="voice" class="panel">
+<div class="close" onclick="closePanel()">✕</div>
+
+<h1>VOICE CLAIM</h1>
+
+<p>voz baixa. controlada.</p>
+<p>cada palavra parece já ter consequência.</p>
+
+</div>
+
+<!-- PAVOR + CURIOSITIES -->
+<div id="pavor" class="panel">
+<div class="close" onclick="closePanel()">✕</div>
+
+<h1>PAVOR</h1>
+
+<p>ele não teme perder o controle.</p>
+<p>ele teme saber que ainda escolhe.</p>
+
+<hr style="margin:30px 0; border:0.5px solid #7a0000; opacity:0.4;">
+
+<h1>CURIOSITIES</h1>
+
+<p>o nome dele pesa quando é dito.</p>
+<p>silêncio nunca é vazio — é processamento.</p>
+<p>ele observa tudo antes de reagir.</p>
+<p>o toque nunca é natural.</p>
+
+</div>
+
+<!-- PLAYLIST -->
+<div id="playlist" class="panel">
+<div class="close" onclick="closePanel()">✕</div>
+
+<h1>PLAYLIST</h1>
+
+<p>(vazio — futuro conteúdo)</p>
+
+</div>
+
+<script>
+
+function openPanel(id){
+
+    document.body.classList.add("menu-open");
+
+    let panels = document.querySelectorAll('.panel');
+    panels.forEach(p => p.classList.remove('active'));
+
+    document.getElementById(id).classList.add('active');
+}
+
+function closePanel(){
+
+    document.body.classList.remove("menu-open");
+
+    document.querySelectorAll('.panel')
+    .forEach(p => p.classList.remove('active'));
+}
+
+</script>
 
 </body>
 </html>
