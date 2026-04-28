@@ -8,7 +8,7 @@
 
 <title>Hades</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;600&family=Cinzel:wght@400;700&display=swap" rel="stylesheet">
 
 <style>
 
@@ -23,10 +23,13 @@ body{
     width:100%;
     height:100vh;
 
-    background-image:url("bg.jpg");
+    background-image:url("images/bg.jpg");
 
     background-size:cover;
-    background-position:center;
+
+    /* joga a imagem mais pra direita */
+    background-position:75% center;
+
     background-repeat:no-repeat;
 
     overflow:hidden;
@@ -34,21 +37,30 @@ body{
     font-family:'Cinzel', serif;
 }
 
-/* escurece */
+/* camada escura cinematográfica */
 body::before{
 
     content:"";
 
     position:absolute;
 
+    top:0;
+    left:0;
+
     width:100%;
     height:100%;
 
-    background:rgba(0,0,0,0.25);
+    background:
+    linear-gradient(
+        to right,
+        rgba(0,0,0,0.75),
+        rgba(0,0,0,0.15)
+    );
 
+    z-index:1;
 }
 
-/* menu */
+/* container principal */
 .menu{
 
     position:relative;
@@ -66,46 +78,81 @@ body::before{
     padding-left:8%;
 }
 
-.menu h1{
+/* logo png */
+.logo{
 
-    color:white;
-
-    font-size:5rem;
+    width:500px;
 
     margin-bottom:40px;
 
-    letter-spacing:8px;
+    filter:
+    drop-shadow(0 0 25px rgba(0,0,0,0.9));
+
 }
 
-/* links */
+/* links menu */
 .menu a{
 
     color:white;
 
     text-decoration:none;
 
-    font-size:1.2rem;
+    font-family:'Cormorant Garamond', serif;
 
-    margin:12px 0;
+    font-size:1.4rem;
 
-    letter-spacing:5px;
+    font-weight:300;
 
-    transition:0.4s ease;
+    margin:10px 0;
+
+    letter-spacing:6px;
+
+    transition:0.45s ease;
 
     width:fit-content;
-}
-
-/* hover */
-.menu a:hover{
-
-    color:#8b0000;
-
-    transform:translateX(10px);
 
     text-shadow:
-    0 0 10px #8b0000;
+    0 0 10px rgba(0,0,0,0.7);
+}
 
-    letter-spacing:8px;
+/* hover cinematográfico */
+.menu a:hover{
+
+    color:#7a0000;
+
+    transform:translateX(12px);
+
+    letter-spacing:10px;
+
+    text-shadow:
+    0 0 8px #7a0000,
+    0 0 20px #7a0000;
+}
+
+/* celular */
+@media(max-width:768px){
+
+    body{
+
+        background-position:70% center;
+    }
+
+    .menu{
+
+        padding-left:10%;
+    }
+
+    .logo{
+
+        width:280px;
+    }
+
+    .menu a{
+
+        font-size:1.1rem;
+
+        letter-spacing:4px;
+    }
 }
 
 </style>
@@ -116,7 +163,8 @@ body::before{
 
 <div class="menu">
 
-<h1>HADES</h1>
+<!-- logo png -->
+<img src="images/logo.png" class="logo">
 
 <a href="#">SHADOWS</a>
 
