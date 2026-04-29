@@ -216,14 +216,6 @@ p{
     opacity:1;
 }
 
-.vf-inner{
-    width:100%;
-    height:100%;
-    position:relative;
-    transition:transform 0.9s cubic-bezier(.2,.8,.2,1);
-    transform-style:preserve-3d;
-}
-
 /* frente e verso */
 .vf-front,
 .vf-back{
@@ -239,17 +231,17 @@ p{
     display:flex;
     align-items:flex-end;
     padding:25px;
-    filter:brightness(0.8) contrast(1.1);
 }
 
 .vf-front .overlay{
     position:absolute;
     inset:0;
-    background:linear-gradient(to top, rgba(0,0,0,0.92), rgba(0,0,0,0.2));
-}
-
-.vf-card:hover .overlay{
-    background:linear-gradient(to top, rgba(122,0,0,0.95), rgba(0,0,0,0.1));
+    background:radial-gradient(
+        ellipse at center,
+        rgba(0,0,0,0) 70%,
+        rgba(0,0,0,0.18) 100%
+    );
+    pointer-events:none;
 }
 
 .vf-front span{
