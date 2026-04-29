@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt">
 
 <head>
 
@@ -72,7 +72,7 @@ body::before{
     transition:0.6s ease;
 }
 
-/* quando abre aba */
+/* efeito ao abrir aba */
 body.menu-open .menu{
     transform: translateX(-35%);
     opacity:0.15;
@@ -141,7 +141,6 @@ body.menu-open .menu{
     animation:fadeIn 0.6s ease;
 }
 
-/* animação */
 @keyframes fadeIn{
     from{
         opacity:0;
@@ -176,22 +175,6 @@ p{
     cursor:pointer;
 }
 
-/* mobile */
-@media(max-width:768px){
-
-    .menu{
-        padding-left:10%;
-    }
-
-    .logo{
-        width:280px;
-    }
-
-    .panel{
-        padding:80px 30px;
-    }
-}
-
 </style>
 
 </head>
@@ -202,6 +185,7 @@ p{
 
 <img src="images/logo.png" class="logo">
 
+<!-- CLIQUE FUNCIONANDO AQUI -->
 <a data-panel="shadows">SOMBRAS</a>
 <a data-panel="personality">PERSONALIDADE</a>
 <a data-panel="trueform">VERDADEIRA FORMA</a>
@@ -215,97 +199,77 @@ p{
 <!-- SHADOWS -->
 <div id="shadows" class="panel">
 <div class="close" onclick="closePanel()">✕</div>
-
-<h1>SHADOWS</h1>
-
+<h1>SOMBRAS</h1>
 <p>há algo nele que não é humano no sentido comum.</p>
-<p>não é só controle — é consciência do excesso.</p>
-<p>ele sabe quando atravessa a linha e ainda assim atravessa.</p>
-
 </div>
 
 <!-- PERSONALITY -->
 <div id="personality" class="panel">
 <div class="close" onclick="closePanel()">✕</div>
-
-<h1>PERSONALITY</h1>
-
-<p>há pessoas que fingem não sentir.</p>
-<p>hades não finge.</p>
-
-<p>ele observa, mede e calcula silêncio como linguagem.</p>
-
+<h1>PERSONALIDADE</h1>
+<p>hades não finge. ele observa tudo em silêncio.</p>
 </div>
 
-<!-- TRUE FORM (VAZIO) -->
+<!-- TRUE FORM -->
 <div id="trueform" class="panel">
 <div class="close" onclick="closePanel()">✕</div>
-
-<h1>TRUE FORM</h1>
-
+<h1>VERDADEIRA FORMA</h1>
 <p>(vazio por enquanto)</p>
-
 </div>
 
 <!-- VOICE -->
 <div id="voice" class="panel">
 <div class="close" onclick="closePanel()">✕</div>
-
-<h1>VOICE CLAIM</h1>
-
-<p>voz baixa. controlada.</p>
-<p>cada palavra parece já ter consequência.</p>
-
+<h1>REPRESENTAÇÃO DE VOZ</h1>
+<p>voz baixa. controlada. perigosa no silêncio.</p>
 </div>
 
-<!-- PAVOR + CURIOSITIES -->
+<!-- CURIOSITIES -->
+<div id="curiosities" class="panel">
+<div class="close" onclick="closePanel()">✕</div>
+<h1>CURIOSIDADES</h1>
+<p>o nome dele pesa quando é dito.</p>
+</div>
+
+<!-- PAVOR -->
 <div id="pavor" class="panel">
 <div class="close" onclick="closePanel()">✕</div>
-
 <h1>PAVOR</h1>
-
-<p>ele não teme perder o controle.</p>
-<p>ele teme saber que ainda escolhe.</p>
-
-<hr style="margin:30px 0; border:0.5px solid #7a0000; opacity:0.4;">
-
-<h1>CURIOSITIES</h1>
-
-<p>o nome dele pesa quando é dito.</p>
-<p>silêncio nunca é vazio — é processamento.</p>
-<p>ele observa tudo antes de reagir.</p>
-<p>o toque nunca é natural.</p>
-
+<p>ele teme o momento em que ainda escolhe.</p>
 </div>
 
 <!-- PLAYLIST -->
 <div id="playlist" class="panel">
 <div class="close" onclick="closePanel()">✕</div>
-
 <h1>PLAYLIST</h1>
-
-<p>(vazio — futuro conteúdo)</p>
-
+<p>(vazio)</p>
 </div>
 
 <script>
 
-function openPanel(id){
+// CLIQUE FUNCIONAL
+document.querySelectorAll(".menu a").forEach(link => {
+    link.addEventListener("click", () => {
 
-    document.body.classList.add("menu-open");
+        const id = link.getAttribute("data-panel");
 
-    let panels = document.querySelectorAll('.panel');
-    panels.forEach(p => p.classList.remove('active'));
+        document.body.classList.add("menu-open");
 
-    document.getElementById(id).classList.add('active');
-}
+        document.querySelectorAll(".panel").forEach(p => {
+            p.classList.remove("active");
+        });
 
+        document.getElementById(id).classList.add("active");
+    });
+});
+
+// FECHAR
 function closePanel(){
-
     document.body.classList.remove("menu-open");
 
-    document.querySelectorAll('.panel')
-    .forEach(p => p.classList.remove('active'));
+    document.querySelectorAll(".panel").forEach(p => {
+        p.classList.remove("active");
+    });
 }
 
 </script>
