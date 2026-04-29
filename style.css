@@ -124,12 +124,12 @@ body.menu-open .menu{
     transform:translateX(8px);
 }
 
-/* 📦 PAINÉIS */
+/* 📦 PAINÉIS (CORREÇÃO PRINCIPAL AQUI) */
 .panel{
     position:fixed;
     inset:0;
 
-    z-index:10;
+    z-index:50; /* 🔥 CORRIGIDO (antes ficava atrás do overlay) */
 
     height:100vh;
 
@@ -138,7 +138,7 @@ body.menu-open .menu{
     overflow-y:auto;
     -webkit-overflow-scrolling: touch;
 
-    background:rgba(0,0,0,0.88);
+    background:rgba(0,0,0,0.92); /* mais sólido pra leitura */
 
     opacity:0;
     transform:translateX(40px);
@@ -173,4 +173,5 @@ p{
     right:25px;
     font-size:24px;
     cursor:pointer;
+    z-index:60;
 }
