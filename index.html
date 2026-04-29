@@ -182,6 +182,7 @@ p{
 <a data-panel="verdadeira-forma">VERDADEIRA FORMA</a>
 <a data-panel="voz">REPRESENTAÇÃO DE VOZ</a>
 <a data-panel="curiosidades">CURIOSIDADES</a>
+<a data-panel="calcanhar-de-aquiles">CALCANHAR DE AQUILES</a>    
 <a data-panel="pavor">PAVOR</a>
 <a data-panel="playlist">PLAYLIST</a>
 
@@ -470,6 +471,49 @@ calor, presença, algo que não seja… interno.</p>
 
 </div>
 
+<!-- CALCANHAR DE AQUILES -->
+<div id="calcanhar-de-aquiles" class="panel">
+<div class="close" onclick="closePanel()">✕</div>
+
+<h1>CALCANHAR DE AQUILES</h1>
+
+<p>há algo aqui que não deve ser tocado diretamente.</p>
+<p>nem todo conhecimento está acessível sem custo.</p>
+
+<br>
+
+<p><i>
+Eu nasço quando a luz me toca,<br>
+Mas desapareço se ela me abandona.<br>
+Sigo cada passo teu em silêncio,<br>
+Nunca te alcanço, mas nunca te deixo.
+</i></p>
+
+<br>
+
+<p>digite a resposta:</p>
+
+<input id="enigma-input" type="text" placeholder="sua resposta..." 
+style="padding:10px; width:200px; font-family:serif;">
+
+<button onclick="verificarEnigma()" style="
+padding:10px;
+margin-left:10px;
+cursor:pointer;
+background:#7a0000;
+color:white;
+border:none;
+font-family:serif;
+">
+confirmar
+</button>
+
+<br><br>
+
+<p id="resultado-enigma"></p>
+
+</div>
+    
 <!-- PAVOR -->
 <div id="pavor" class="panel">
 <div class="close" onclick="closePanel()">✕</div>
@@ -508,7 +552,32 @@ function closePanel(){
         p.classList.remove("active");
     });
 }
+function verificarEnigma() {
 
+    const resposta = document.getElementById("enigma-input").value.trim().toLowerCase();
+    const resultado = document.getElementById("resultado-enigma");
+
+    if (resposta === "sombra") {
+
+        resultado.innerText = "✔ correto.";
+        resultado.style.color = "#7a0000";
+
+        // fecha todas as abas abertas
+        document.querySelectorAll(".panel").forEach(p => {
+            p.classList.remove("active");
+        });
+
+        // abre Calcanhar de Aquiles
+        document.getElementById("calcanhar-de-aquiles").classList.add("active");
+
+        // mantém efeito do menu escuro
+        document.body.classList.add("menu-open");
+
+    } else {
+        resultado.innerText = "✖ incorreto.";
+        resultado.style.color = "white";
+    }
+}
 </script>
 
 </body>
