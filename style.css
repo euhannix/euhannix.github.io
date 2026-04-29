@@ -8,22 +8,18 @@ html, body{
     height:100%;
 }
 
-body{
-    font-family:'Cormorant Garamond', serif;
-    overflow-x:hidden;
-    background-color:black;
+body {
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
 
-    background-image:url("images/bg.jpg");
-    background-repeat:no-repeat;
-    background-position:center top;
-    background-size:cover;
+    background: url("images/bg.jpg") center/cover no-repeat fixed;
+    color: #fff;
 
-    color:white;
-
-    filter:contrast(1.15) saturate(0.85) brightness(0.92);
+    font-family: 'Cormorant Garamond', serif;
+    overflow-x: hidden;
 }
 
-/* VINHETA */
 body::before{
     content:"";
     position:fixed;
@@ -143,6 +139,14 @@ p{
     z-index:60;
 }
 
+.vf-card.active .vf-inner{
+    transform:rotateY(180deg) scale(1.01);
+}
+
+.vf-card.active::after{
+    opacity:1;
+}
+
 /* ===== VERDADEIRA FORMA ===== */
 
 .cards-grid{
@@ -155,7 +159,7 @@ p{
     perspective:2000px;
 }
 
-/* card */
+/* CARD */
 .vf-card{
     position:relative;
     width:100%;
@@ -164,11 +168,41 @@ p{
     transform-style:preserve-3d;
 }
 
-.vf-card:hover{
-    z-index:10;
+/* CONTEÚDO INTERNO */
+.vf-inner{
+    width:100%;
+    height:100%;
+    position:relative;
+    transition:transform 0.9s cubic-bezier(.2,.8,.2,1);
+    transform-style:preserve-3d;
 }
 
-/* glow */
+/* ===== DESKTOP (HOVER) ===== */
+.vf-card:hover .vf-inner{
+    transform:rotateY(180deg) scale(1.01);
+}
+
+.vf-card:hover::after{
+    opacity:1;
+}
+
+/* ===== MOBILE (TOQUE / ACTIVE) ===== */
+.vf-card.active .vf-inner{
+    transform:rotateY(180deg) scale(1.01);
+}
+
+.vf-card.active::after{
+    opacity:1;
+}
+
+/* DESATIVAR HOVER NO TOUCH */
+@media (hover: none) {
+    .vf-card:hover .vf-inner{
+        transform:none;
+    }
+}
+
+/* GLOW */
 .vf-card::after{
     content:"";
     position:absolute;
@@ -188,10 +222,6 @@ p{
     position:relative;
     transition:transform 0.9s cubic-bezier(.2,.8,.2,1);
     transform-style:preserve-3d;
-}
-
-.vf-card:hover .vf-inner{
-    transform:rotateY(180deg) scale(1.01);
 }
 
 /* frente e verso */
