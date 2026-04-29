@@ -419,14 +419,19 @@ document.querySelectorAll(".menu a").forEach(link => {
     link.addEventListener("click", () => {
 
         const id = link.getAttribute("data-panel");
+        const painel = document.getElementById(id);
+
+        if (!painel) return;
 
         document.body.classList.add("menu-open");
 
         document.querySelectorAll(".panel").forEach(p => {
             p.classList.remove("active");
+            p.scrollTop = 0;
         });
 
-        document.getElementById(id).classList.add("active");
+        painel.scrollTop = 0;
+        painel.classList.add("active");
     });
 });
 
@@ -435,6 +440,7 @@ function closePanel(){
 
     document.querySelectorAll(".panel").forEach(p => {
         p.classList.remove("active");
+        p.scrollTop = 0;
     });
 }
 function verificarEnigma() {
