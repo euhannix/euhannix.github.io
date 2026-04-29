@@ -13,8 +13,9 @@
 
 <div class="cursor-shadow"></div>
 
+<!-- ═══ MENU ═══ -->
 <div class="menu">
-  <img src="images/logo.png" class="logo">
+  <img src="images/logo.png" class="logo" alt="logo">
   <a data-panel="sombras">SOMBRAS</a>
   <a data-panel="personalidade">PERSONALIDADE</a>
   <a data-panel="verdadeira-forma">VERDADEIRA FORMA</a>
@@ -25,7 +26,7 @@
   <a data-panel="playlist">PLAYLIST</a>
 </div>
 
-<!-- SOMBRAS -->
+<!-- ═══ PAINEL: SOMBRAS ═══ -->
 <div id="sombras" class="panel">
   <div class="close" onclick="closePanel()">✕</div>
   <h1>SOMBRAS</h1>
@@ -72,7 +73,7 @@
   <p>porque, no fim,<br>já que era,<br>restou-lhe apenas ser.</p>
 </div>
 
-<!-- PERSONALIDADE -->
+<!-- ═══ PAINEL: PERSONALIDADE ═══ -->
 <div id="personalidade" class="panel">
   <div class="close" onclick="closePanel()">✕</div>
   <h1>Personalidade</h1>
@@ -146,7 +147,7 @@
   <p>então tornou-se.</p>
 </div>
 
-<!-- VERDADEIRA FORMA -->
+<!-- ═══ PAINEL: VERDADEIRA FORMA ═══ -->
 <div id="verdadeira-forma" class="panel">
   <div class="close" onclick="closePanel()">✕</div>
   <h1>VERDADEIRA FORMA</h1>
@@ -156,10 +157,12 @@
     <!-- CARD 1 — HANNIBAL -->
     <div class="vf-card" data-lore="hannibal">
       <div class="vf-inner">
+
         <div class="vf-front" style="background-image:url('images/cardum.jpg');">
           <div class="overlay"></div>
           <span>hannibal lecter</span>
         </div>
+
         <div class="vf-back">
           <div class="vf-back-top">
             <h2>hannibal lecter</h2>
@@ -167,16 +170,19 @@
           </div>
           <button class="btn-ler-mais" data-lore="hannibal">ler mais</button>
         </div>
+
       </div>
     </div>
 
     <!-- CARD 2 — ITACHI -->
     <div class="vf-card" data-lore="itachi">
       <div class="vf-inner">
+
         <div class="vf-front" style="background-image:url('images/carddois.jpg');">
           <div class="overlay"></div>
           <span>itachi uchiha</span>
         </div>
+
         <div class="vf-back">
           <div class="vf-back-top">
             <h2>itachi uchiha</h2>
@@ -184,16 +190,19 @@
           </div>
           <button class="btn-ler-mais" data-lore="itachi">ler mais</button>
         </div>
+
       </div>
     </div>
 
     <!-- CARD 3 — DRÁCULA -->
     <div class="vf-card" data-lore="dracula">
       <div class="vf-inner">
+
         <div class="vf-front" style="background-image:url('images/cardtres.jpg.PNG');">
           <div class="overlay"></div>
           <span>drácula</span>
         </div>
+
         <div class="vf-back">
           <div class="vf-back-top">
             <h2>drácula</h2>
@@ -201,16 +210,19 @@
           </div>
           <button class="btn-ler-mais" data-lore="dracula">ler mais</button>
         </div>
+
       </div>
     </div>
 
     <!-- CARD 4 — TOM RIDDLE -->
     <div class="vf-card" data-lore="tom">
       <div class="vf-inner">
+
         <div class="vf-front" style="background-image:url('images/cardquatro.jpg');">
           <div class="overlay"></div>
           <span>tom riddle</span>
         </div>
+
         <div class="vf-back">
           <div class="vf-back-top">
             <h2>tom riddle</h2>
@@ -218,20 +230,21 @@
           </div>
           <button class="btn-ler-mais" data-lore="tom">ler mais</button>
         </div>
+
       </div>
     </div>
 
-  </div>
+  </div><!-- /cards-grid -->
 </div>
 
-<!-- VOZ -->
+<!-- ═══ PAINEL: VOZ ═══ -->
 <div id="voz" class="panel">
   <div class="close" onclick="closePanel()">✕</div>
   <h1>REPRESENTAÇÃO DE VOZ</h1>
   <p>voz baixa. controlada. perigosa no silêncio.</p>
 </div>
 
-<!-- CURIOSIDADES -->
+<!-- ═══ PAINEL: CURIOSIDADES ═══ -->
 <div id="curiosidades" class="panel">
   <div class="close" onclick="closePanel()">✕</div>
   <h1>CURIOSIDADES</h1>
@@ -244,7 +257,7 @@
   <p><b>IV. o toque não é natural para ele</b><br>não evita completamente. mas quando acontece, dura o suficiente para ser notado.<br>como se precisasse confirmar que aquilo ainda existe.<br>calor, presença, algo que não seja… interno.</p>
 </div>
 
-<!-- CALCANHAR DE AQUILES -->
+<!-- ═══ PAINEL: CALCANHAR DE AQUILES ═══ -->
 <div id="calcanhar-de-aquiles" class="panel">
   <div class="close" onclick="closePanel()">✕</div>
   <h1>CALCANHAR DE AQUILES</h1>
@@ -257,9 +270,12 @@
     <br>
     <p>digite a resposta:</p>
     <input id="enigma-input" type="text" placeholder="sua resposta..."
-      style="padding:10px; width:200px; font-family:serif;">
-    <button onclick="verificarEnigma()" style="padding:10px; margin-left:10px; cursor:pointer; background:#7a0000; color:white; border:none; font-family:serif;">confirmar</button>
-    <p id="resultado-enigma"></p>
+      style="padding:10px; width:200px; font-family:serif; background:transparent; border:1px solid rgba(122,0,0,0.4); color:white; margin-top:8px;">
+    <button onclick="verificarEnigma()"
+      style="padding:10px 18px; margin-left:10px; cursor:pointer; background:#7a0000; color:white; border:none; font-family:'Cinzel',serif; font-size:0.75rem; letter-spacing:2px; text-transform:uppercase;">
+      confirmar
+    </button>
+    <p id="resultado-enigma" style="margin-top:12px;"></p>
   </div>
 
   <div id="conteudo-calcanhar" style="display:none;">
@@ -271,7 +287,7 @@
   </div>
 </div>
 
-<!-- PAVOR -->
+<!-- ═══ PAINEL: PAVOR ═══ -->
 <div id="pavor" class="panel">
   <div class="close" onclick="closePanel()">✕</div>
   <h1>PAVOR</h1>
@@ -286,18 +302,52 @@
   <p>mas teme. teme que novamente, mais uma vez, esteja em uma posição em que precise escolher.</p>
 </div>
 
-<!-- PLAYLIST -->
+<!-- ═══ PAINEL: PLAYLIST ═══ -->
 <div id="playlist" class="panel">
   <div class="close" onclick="closePanel()">✕</div>
   <h1>PLAYLIST</h1>
-  <p>(vazio)</p>
+  <p>as músicas que habitam o mesmo silêncio.</p>
+
+  <div class="playlist-wrapper">
+    <!--
+      ════════════════════════════════════════════════════
+      COMO ADICIONAR SUA PLAYLIST DO SPOTIFY:
+
+      1. Abra o Spotify e vá à sua playlist.
+      2. Clique nos três pontos (···) > Compartilhar
+         > Incorporar playlist.
+      3. Copie o código iframe gerado.
+      4. Cole aqui substituindo o iframe abaixo.
+
+      Exemplo de como o iframe do Spotify se parece:
+      <iframe style="border-radius:12px"
+        src="https://open.spotify.com/embed/playlist/SEU_ID_AQUI?utm_source=generator"
+        width="100%" height="380" frameBorder="0"
+        allowfullscreen=""
+        allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+        loading="lazy">
+      </iframe>
+      ════════════════════════════════════════════════════
+    -->
+    <iframe
+      src="https://open.spotify.com/embed/playlist/37i9dQZF1DX0XUsuxWHRQd?utm_source=generator"
+      width="100%"
+      height="380"
+      frameborder="0"
+      allowfullscreen=""
+      allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+      loading="lazy">
+    </iframe>
+
+    <p class="playlist-hint">substitua pelo embed da sua playlist</p>
+  </div>
 </div>
 
-<!-- ══════════════════════════════════════════
-     MODAL DE LORE — estrutura reutilizável
-     Para adicionar texto de um personagem,
-     edite o objeto LORE_DATA no script abaixo.
-     ══════════════════════════════════════════ -->
+<!-- ═══════════════════════════════════════════════════════
+     MODAL DE LORE — reutilizável
+     Para editar o texto de cada personagem,
+     altere o objeto LORE_DATA no <script> abaixo.
+     ═══════════════════════════════════════════════════════ -->
 <div id="lore-modal" class="lore-modal" role="dialog" aria-modal="true">
   <div class="lore-overlay" onclick="closeLore()"></div>
   <div class="lore-content">
@@ -307,14 +357,22 @@
   </div>
 </div>
 
+<!-- ═══ FOOTER ═══ -->
+<footer class="site-footer">
+  <a href="https://wa.me/5599982143833" target="_blank" rel="noopener noreferrer">
+    por Hannix
+  </a>
+</footer>
+
 <script>
-/* ═══════════════════════════════════════════════════
+/* ═══════════════════════════════════════════════════════
    LORE DATA
-   Adicione ou edite personagens aqui.
-   Cada entrada: { title, text }
-   text pode conter HTML (ex: <br>, <p>)
-   ═══════════════════════════════════════════════════ */
+   Edite os textos de cada personagem aqui.
+   Use tags HTML (<p>, <br>) para formatação.
+   Para adicionar novo personagem, repita o padrão abaixo.
+   ═══════════════════════════════════════════════════════ */
 const LORE_DATA = {
+
   hannibal: {
     title: "hannibal lecter",
     text: `
@@ -322,9 +380,11 @@ const LORE_DATA = {
       <p>convém começar por ele, suponho.</p>
       <p>afinal, existem pessoas que conversam… e existem aquelas que dissecam.</p>
       <br>
-      <p><!-- INSIRA O TEXTO COMPLETO DE HANNIBAL AQUI --></p>
+      <!-- INSIRA O TEXTO COMPLETO DE HANNIBAL ABAIXO -->
+      <p></p>
     `
   },
+
   itachi: {
     title: "itachi uchiha",
     text: `
@@ -332,9 +392,11 @@ const LORE_DATA = {
       <p>e existem aquelas que ultrapassaram o próprio limite há tanto tempo…</p>
       <p>que esqueceram como parar.</p>
       <br>
-      <p><!-- INSIRA O TEXTO COMPLETO DE ITACHI AQUI --></p>
+      <!-- INSIRA O TEXTO COMPLETO DE ITACHI ABAIXO -->
+      <p></p>
     `
   },
+
   dracula: {
     title: "drácula",
     text: `
@@ -342,9 +404,11 @@ const LORE_DATA = {
       <p>outros apodrecem lentamente até se tornarem maldição.</p>
       <p>hades compreenderia ambos.</p>
       <br>
-      <p><!-- INSIRA O TEXTO COMPLETO DE DRÁCULA AQUI --></p>
+      <!-- INSIRA O TEXTO COMPLETO DE DRÁCULA ABAIXO -->
+      <p></p>
     `
   },
+
   tom: {
     title: "tom riddle",
     text: `
@@ -353,46 +417,48 @@ const LORE_DATA = {
       <p>e hades… bom.</p>
       <p>isso explica muita coisa.</p>
       <br>
-      <p><!-- INSIRA O TEXTO COMPLETO DE TOM RIDDLE AQUI --></p>
+      <!-- INSIRA O TEXTO COMPLETO DE TOM RIDDLE ABAIXO -->
+      <p></p>
     `
   }
+
   /* Para adicionar um novo personagem:
-  ,novoPersonagem: {
-    title: "nome do personagem",
+  ,nomeChave: {
+    title: "nome visível",
     text: `<p>texto aqui...</p>`
   }
   */
 };
 
 
-/* ═══════════════════════════════════════════════════
-   DETECÇÃO DE DISPOSITIVO
-   ═══════════════════════════════════════════════════ */
-const isTouchDevice = () =>
-  window.matchMedia("(hover: none)").matches || "ontouchstart" in window;
+/* ═══════════════════════════════════════════════════════
+   DETECÇÃO DE TOUCH
+   ═══════════════════════════════════════════════════════ */
+const isTouch = () => window.matchMedia("(hover: none)").matches;
 
 
-/* ═══════════════════════════════════════════════════
+/* ═══════════════════════════════════════════════════════
    CARDS — FLIP
-   Desktop: hover via CSS
-   Mobile: click para virar/desvirar (1 ativo por vez)
-   ═══════════════════════════════════════════════════ */
-const cards = document.querySelectorAll(".vf-card");
+   Desktop: CSS hover (nenhum JS necessário)
+   Mobile:  JS click → classe .active (1 ativo por vez)
+   ═══════════════════════════════════════════════════════ */
+const allCards = document.querySelectorAll(".vf-card");
 
-cards.forEach(card => {
+allCards.forEach(card => {
   card.addEventListener("click", function(e) {
-    // Só processa o flip em dispositivos touch
-    if (!isTouchDevice()) return;
 
-    // Se clicou no botão "ler mais", não faz flip (o botão trata isso)
+    // Em desktop (hover real), só o botão "ler mais" deve reagir ao click
+    if (!isTouch()) return;
+
+    // Se o clique veio do botão "ler mais", não faz flip
     if (e.target.closest(".btn-ler-mais")) return;
 
     const isActive = this.classList.contains("active");
 
-    // Fecha todos os outros cards
-    cards.forEach(c => c.classList.remove("active"));
+    // Fecha todos os cards
+    allCards.forEach(c => c.classList.remove("active"));
 
-    // Alterna o card atual
+    // Abre este (ou fecha se já estava aberto)
     if (!isActive) {
       this.classList.add("active");
     }
@@ -400,32 +466,31 @@ cards.forEach(card => {
 });
 
 
-/* ═══════════════════════════════════════════════════
+/* ═══════════════════════════════════════════════════════
    BOTÃO "LER MAIS"
-   Funciona tanto em desktop (hover) quanto mobile (tap)
-   ═══════════════════════════════════════════════════ */
+   stopPropagation evita conflito com o flip no mobile
+   ═══════════════════════════════════════════════════════ */
 document.querySelectorAll(".btn-ler-mais").forEach(btn => {
   btn.addEventListener("click", function(e) {
-    e.stopPropagation(); // Impede que o clique vire o card no mobile
-    const loreKey = this.getAttribute("data-lore");
-    openLore(loreKey);
+    e.stopPropagation();
+    openLore(this.getAttribute("data-lore"));
   });
 });
 
 
-/* ═══════════════════════════════════════════════════
+/* ═══════════════════════════════════════════════════════
    MODAL DE LORE — abrir / fechar
-   ═══════════════════════════════════════════════════ */
+   ═══════════════════════════════════════════════════════ */
 function openLore(key) {
   const data = LORE_DATA[key];
   if (!data) return;
 
   document.getElementById("lore-title").textContent = data.title;
-  document.getElementById("lore-text").innerHTML = data.text;
+  document.getElementById("lore-text").innerHTML   = data.text;
 
   const modal = document.getElementById("lore-modal");
   modal.classList.add("active");
-  document.body.style.overflow = "hidden"; // Trava scroll do fundo
+  document.body.style.overflow = "hidden";
 }
 
 function closeLore() {
@@ -433,23 +498,23 @@ function closeLore() {
   document.body.style.overflow = "";
 }
 
-// Fechar com tecla Escape
+// Fechar modal com Escape
 document.addEventListener("keydown", e => {
   if (e.key === "Escape") closeLore();
 });
 
 
-/* ═══════════════════════════════════════════════════
-   MENU — painéis
-   ═══════════════════════════════════════════════════ */
+/* ═══════════════════════════════════════════════════════
+   MENU — abertura de painéis
+   ═══════════════════════════════════════════════════════ */
 document.querySelectorAll(".menu a").forEach(link => {
   link.addEventListener("click", () => {
-    const id = link.getAttribute("data-panel");
+    const id     = link.getAttribute("data-panel");
     const painel = document.getElementById(id);
     if (!painel) return;
 
-    // Fecha qualquer card virado ao trocar de painel
-    cards.forEach(c => c.classList.remove("active"));
+    // Reseta cards ao trocar de painel
+    allCards.forEach(c => c.classList.remove("active"));
 
     document.body.classList.add("menu-open");
     document.querySelectorAll(".panel").forEach(p => p.classList.remove("active"));
@@ -461,44 +526,48 @@ document.querySelectorAll(".menu a").forEach(link => {
 function closePanel() {
   document.body.classList.remove("menu-open");
   document.querySelectorAll(".panel").forEach(p => p.classList.remove("active"));
-  cards.forEach(c => c.classList.remove("active"));
+  allCards.forEach(c => c.classList.remove("active"));
 }
 
 
-/* ═══════════════════════════════════════════════════
-   CURSOR SHADOW
-   ═══════════════════════════════════════════════════ */
-const cursorShadow = document.querySelector(".cursor-shadow");
-if (cursorShadow) {
+/* ═══════════════════════════════════════════════════════
+   CURSOR SHADOW (desktop)
+   ═══════════════════════════════════════════════════════ */
+const cursorEl = document.querySelector(".cursor-shadow");
+if (cursorEl) {
   document.addEventListener("mousemove", e => {
-    cursorShadow.style.left = e.clientX + "px";
-    cursorShadow.style.top  = e.clientY + "px";
+    cursorEl.style.left = e.clientX + "px";
+    cursorEl.style.top  = e.clientY + "px";
   });
 }
 
 
-/* ═══════════════════════════════════════════════════
+/* ═══════════════════════════════════════════════════════
    ENIGMA — calcanhar de aquiles
-   ═══════════════════════════════════════════════════ */
+   ═══════════════════════════════════════════════════════ */
 function verificarEnigma() {
-  const resposta = document.getElementById("enigma-input").value.trim().toLowerCase();
+  const input    = document.getElementById("enigma-input");
   const resultado = document.getElementById("resultado-enigma");
+  const resposta  = input.value.trim().toLowerCase();
 
   if (resposta === "sombra") {
-    resultado.innerText = "✔ correto.";
-    resultado.style.color = "#7a0000";
-    document.getElementById("enigma-box").style.display = "none";
+    resultado.textContent  = "✔ correto.";
+    resultado.style.color  = "#7a0000";
+    document.getElementById("enigma-box").style.display       = "none";
     document.getElementById("conteudo-calcanhar").style.display = "block";
   } else {
-    resultado.innerText = "✖ incorreto.";
-    resultado.style.color = "white";
+    resultado.textContent = "✖ incorreto.";
+    resultado.style.color = "rgba(255,255,255,0.7)";
   }
 }
 
-// Permite confirmar com Enter no campo do enigma
-document.getElementById("enigma-input")?.addEventListener("keydown", e => {
-  if (e.key === "Enter") verificarEnigma();
-});
+// Confirmar enigma com Enter
+const enigmaInput = document.getElementById("enigma-input");
+if (enigmaInput) {
+  enigmaInput.addEventListener("keydown", e => {
+    if (e.key === "Enter") verificarEnigma();
+  });
+}
 </script>
 
 </body>
