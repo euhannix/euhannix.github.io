@@ -7,9 +7,12 @@
 body{
     font-family:'Cormorant Garamond', serif;
     overflow:hidden;
-    background:black url("images/bg.jpg") center/cover no-repeat;
-    color:white;
-    min-height:100vh;
+
+    background-color:black;
+    background-image:url("images/bg.jpg");
+    background-position:center;
+    background-size:cover;
+    background-repeat:no-repeat;
 }
 
 /* FUNDO */
@@ -96,27 +99,26 @@ body.menu-open .menu{
 .panel{
     position:fixed;
     inset:0;
+    height:100vh;
 
     background:rgba(0,0,0,0.85);
     padding:80px 15%;
 
     overflow-y:auto;
 
-    display:none;
+    z-index:5;
 
-    transform:translateX(40px);
     opacity:0;
+    transform:translateX(40px);
+    pointer-events:none;
 
     transition:0.5s ease;
-
-    z-index:5;
 }
 
-/* ativo */
 .panel.active{
-    display:block;
-    transform:translateX(0);
     opacity:1;
+    transform:translateX(0);
+    pointer-events:auto;
 }
 
 /* TEXTO */
