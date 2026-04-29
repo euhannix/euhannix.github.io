@@ -12,17 +12,19 @@ body{
     font-family:'Cormorant Garamond', serif;
     overflow:hidden;
 
-    /* FUNDO GARANTIDO */
     background-color:black;
     background-image:url("images/bg.jpg");
     background-repeat:no-repeat;
-    background-position:center center;
+    background-position:center;
     background-size:cover;
 
     color:white;
+
+    /* efeito gótico geral */
+    filter:contrast(1.15) saturate(0.85) brightness(0.92);
 }
 
-/* overlay escuro cinematográfico */
+/* 🌑 VINHETA PRINCIPAL */
 body::before{
     content:"";
     position:fixed;
@@ -30,31 +32,52 @@ body::before{
 
     background:linear-gradient(
         to right,
-        rgba(0,0,0,0.85),
+        rgba(0,0,0,0.88),
         rgba(0,0,0,0.25)
     );
 
-    z-index:0;
+    z-index:1;
     pointer-events:none;
 }
 
-/* CURSOR SOMBRA */
+/* 🌫 VINHETA GÓTICA (camada extra suave) */
+body::after{
+    content:"";
+    position:fixed;
+    inset:0;
+
+    background:radial-gradient(
+        ellipse at center,
+        rgba(0,0,0,0) 40%,
+        rgba(0,0,0,0.65) 100%
+    );
+
+    z-index:2;
+    pointer-events:none;
+}
+
+/* 🖱 CURSOR SOMBRA */
 .cursor-shadow{
     position:fixed;
-    width:140px;
-    height:140px;
+    width:220px;
+    height:220px;
 
     border-radius:50%;
-    background:radial-gradient(circle, rgba(122,0,0,0.3), transparent 70%);
+    background:radial-gradient(
+        circle,
+        rgba(122,0,0,0.35),
+        transparent 70%
+    );
 
     pointer-events:none;
+
     transform:translate(-50%, -50%);
-    filter:blur(25px);
+    filter:blur(30px);
 
     z-index:9999;
 }
 
-/* MENU SEM SCROLL */
+/* 📜 MENU LIMPO */
 .menu{
     position:fixed;
     top:0;
@@ -71,14 +94,13 @@ body::before{
 
     z-index:10;
 
-    /* 🔥 REMOVE TOTAL DO SCROLL */
     overflow:hidden;
 }
 
 /* efeito ao abrir painel */
 body.menu-open .menu{
-    transform:translateX(-50px);
-    opacity:0.3;
+    transform:translateX(-55px);
+    opacity:0.25;
     transition:0.5s ease;
 }
 
@@ -103,7 +125,7 @@ body.menu-open .menu{
     transform:translateX(8px);
 }
 
-/* PAINÉIS (SEM DISPLAY NONE = SEM BUG) */
+/* 📦 PAINÉIS ESTÁVEIS */
 .panel{
     position:fixed;
     inset:0;
