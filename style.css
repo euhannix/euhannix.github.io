@@ -50,14 +50,13 @@ body::before{
     top:0;
     left:0;
 
-    width:280px;
+    width:180px;
     height:100vh;
 
     padding:40px 25px;
 
     display:flex;
     flex-direction:column;
-
     gap:12px;
 
     z-index:10;
@@ -65,6 +64,12 @@ body::before{
     overflow-y:auto;
 
     transition:0.5s ease;
+}
+
+/* efeito quando abre painel */
+body.menu-open .menu{
+    transform:translateX(-40px);
+    opacity:0.3;
 }
 
 /* LOGO */
@@ -93,32 +98,26 @@ body::before{
     position:fixed;
     inset:0;
 
-    z-index:5;
-
     background:rgba(0,0,0,0.85);
-
     padding:80px 15%;
 
     overflow-y:auto;
 
     display:none;
 
-    transition:0.6s ease;
+    transform:translateX(40px);
+    opacity:0;
+
+    transition:0.5s ease;
+
+    z-index:5;
 }
 
-/* ativa painel */
+/* ativo */
 .panel.active{
     display:block;
-}
-
-/* 🔥 EFEITO DE EMPURRAR MENU (CORREÇÃO PRINCIPAL) */
-body.menu-open .menu{
-    transform:translateX(-35%);
-    opacity:0.2;
-}
-
-body.menu-open .panel{
-    transform:translateX(120px);
+    transform:translateX(0);
+    opacity:1;
 }
 
 /* TEXTO */
@@ -139,5 +138,7 @@ p{
     top:20px;
     right:25px;
     font-size:24px;
+    cursor:pointer;
+}
     cursor:pointer;
 }
