@@ -11,7 +11,7 @@
 
 <body>
 
-<div class="cursor-shadow"></div>
+<div class="lantern" id="lantern"></div>
 
 <!-- ═══ MENU ═══ -->
 <div class="menu">
@@ -531,15 +531,44 @@ function closePanel() {
 
 
 /* ═══════════════════════════════════════════════════════
-   CURSOR SHADOW (desktop)
+   EFEITO LANTERNA — desktop only
+   Usa CSS custom properties para mover o radial-gradient
+   sem criar elementos extras nem bloquear eventos.
    ═══════════════════════════════════════════════════════ */
-const cursorEl = document.querySelector(".cursor-shadow");
-if (cursorEl) {
-  document.addEventListener("mousemove", e => {
-    cursorEl.style.left = e.clientX + "px";
-    cursorEl.style.top  = e.clientY + "px";
-  });
-}
+(function(){
+  // Só ativa em dispositivos com hover real (desktop)
+  if (!window.matchMedia("(hover: hover)").matches) return;
+
+  const lantern = document.getElementById("lantern");
+  if (!lantern) return;
+
+  let targetX = 50, targetY = 50;   // percentuais
+  let currentX = 50, currentY = 50;
+  let rafId = null;
+
+  // Suavização por lerp (interpolação linear)
+  const LERP = 0.10; // 0 = parado, 1 = instantâneo — 0.10 é suave
+
+  function lerp(a, b, t){ return a + (b - a) * t; }
+
+  function tick(){
+    currentX = lerp(currentX, targetX, LERP);
+    currentY = lerp(currentY, targetY, LERP);
+
+    lantern.style.setProperty("--mx", currentX.toFixed(2) + "%");
+    lantern.style.setProperty("--my", currentY.toFixed(2) + "%");
+
+    rafId = requestAnimationFrame(tick);
+  }
+
+  document.addEventListener("mousemove", function(e){
+    targetX = (e.clientX / window.innerWidth)  * 100;
+    targetY = (e.clientY / window.innerHeight) * 100;
+  }, { passive: true });
+
+  // Inicia o loop de animação uma única vez
+  rafId = requestAnimationFrame(tick);
+})();
 
 
 /* ═══════════════════════════════════════════════════════
