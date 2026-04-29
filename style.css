@@ -10,6 +10,7 @@ body{
     background:black;
     color:white;
     min-height:100vh;
+    position:relative;
 }
 
 /* FUNDO */
@@ -28,6 +29,22 @@ body::before{
     pointer-events:none;
 }
 
+/* CURSOR SOMBRA */
+.cursor-shadow{
+    position:fixed;
+    width:140px;
+    height:140px;
+
+    border-radius:50%;
+    background:radial-gradient(circle, rgba(122,0,0,0.3), transparent 70%);
+
+    pointer-events:none;
+    transform:translate(-50%, -50%);
+    filter:blur(25px);
+
+    z-index:9999;
+}
+
 /* MENU */
 .menu{
     position:fixed;
@@ -42,14 +59,16 @@ body::before{
     display:flex;
     flex-direction:column;
 
-    gap:10px;
+    gap:12px;
 
     z-index:10;
 
     overflow-y:auto;
+
+    transition:0.5s ease;
 }
 
-/* LOGO (corrigido tamanho) */
+/* LOGO */
 .logo{
     width:180px;
     margin-bottom:30px;
@@ -84,10 +103,23 @@ body::before{
     overflow-y:auto;
 
     display:none;
+
+    transition:0.6s ease;
 }
 
+/* ativa painel */
 .panel.active{
     display:block;
+}
+
+/* 🔥 EFEITO DE EMPURRAR MENU (CORREÇÃO PRINCIPAL) */
+body.menu-open .menu{
+    transform:translateX(-35%);
+    opacity:0.2;
+}
+
+body.menu-open .panel{
+    transform:translateX(120px);
 }
 
 /* TEXTO */
@@ -109,20 +141,4 @@ p{
     right:25px;
     font-size:24px;
     cursor:pointer;
-}
-
-/* CURSOR SOMBRA */
-.cursor-shadow{
-    position:fixed;
-    width:140px;
-    height:140px;
-
-    border-radius:50%;
-    background:radial-gradient(circle, rgba(122,0,0,0.3), transparent 70%);
-
-    pointer-events:none;
-    transform:translate(-50%, -50%);
-    filter:blur(25px);
-
-    z-index:9999;
 }
