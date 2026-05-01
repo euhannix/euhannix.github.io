@@ -243,6 +243,38 @@
   <div class="close" onclick="closePanel()">✕</div>
   <h1>REPRESENTAÇÃO DE VOZ</h1>
   <p>voz baixa. controlada. perigosa no silêncio.</p>
+
+  <!--
+    ════════════════════════════════════════════════════
+    COMO TROCAR O VÍDEO DO YOUTUBE:
+
+    1. Vá ao vídeo no YouTube.
+    2. Clique em Compartilhar > Incorporar.
+    3. Copie apenas o ID do vídeo da URL gerada.
+       Exemplo: https://www.youtube.com/embed/XXXXXXXXXXX
+                                                ^^^^^^^^^^^
+                                                esse é o ID
+    4. Substitua o ID abaixo em src=, mantendo
+       o restante da URL exatamente como está.
+
+    URL atual de exemplo → troque "dQw4w9WgXcQ" pelo seu ID:
+    src="https://www.youtube.com/embed/dQw4w9WgXcQ?..."
+    ════════════════════════════════════════════════════
+  -->
+  <div class="voz-video-wrapper">
+    <div class="voz-video-container">
+      <iframe
+        src="https://www.youtube.com/embed/dQw4w9WgXcQ?rel=0&modestbranding=1&color=white"
+        title="Representação de voz"
+        frameborder="0"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+        allowfullscreen
+        loading="lazy">
+      </iframe>
+    </div>
+    <p class="voz-hint">substitua pelo embed do seu vídeo</p>
+  </div>
+
 </div>
 
 <!-- ═══ PAINEL: CURIOSIDADES ═══ -->
@@ -543,12 +575,11 @@ function closePanel() {
   const lantern = document.getElementById("lantern");
   if (!lantern) return;
 
-  let targetX = 50, targetY = 50;   // percentuais
+  let targetX = 50, targetY = 50;
   let currentX = 50, currentY = 50;
   let rafId = null;
 
-  // Suavização por lerp (interpolação linear)
-  const LERP = 0.10; // 0 = parado, 1 = instantâneo — 0.10 é suave
+  const LERP = 0.10;
 
   function lerp(a, b, t){ return a + (b - a) * t; }
 
@@ -567,7 +598,6 @@ function closePanel() {
     targetY = (e.clientY / window.innerHeight) * 100;
   }, { passive: true });
 
-  // Inicia o loop de animação uma única vez
   rafId = requestAnimationFrame(tick);
 })();
 
